@@ -1,0 +1,50 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema agenda
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema agenda
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `agenda` DEFAULT CHARACTER SET utf8 ;
+USE `agenda` ;
+
+-- -----------------------------------------------------
+-- Table `agenda`.`login`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `agenda`.`login` (
+  `idLogin` INT(11) NOT NULL AUTO_INCREMENT,
+  `NomeLogin` VARCHAR(45) NOT NULL,
+  `SenhaLogin` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`idLogin`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+-- -----------------------------------------------------
+-- Table `agenda`.`eventos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `agenda`.`eventos` (
+  `idEventos` INT(11) NOT NULL AUTO_INCREMENT,
+  `NomeEvento` VARCHAR(45) NOT NULL,
+  `descrição` VARCHAR(150) NULL DEFAULT NULL,
+  `Data` DATE NOT NULL,
+  `local` VARCHAR(45) NOT NULL,
+  `participantes` INT(11) NOT NULL,
+  `Tipo` VARCHAR(15) NULL DEFAULT 'compartilhado',
+  `criadorEvento` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idEventos`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = latin1;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
